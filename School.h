@@ -1,12 +1,18 @@
+#pragma once
 #include <vector>
-#include "schoolObject.h"
-#include "human.h"
+#include "SchoolObject.h"
+#include "Human.h"
+#include "Teacher.h"
+#include "Student.h"
+#include "SchoolObjectList.h"
+#include "Clazz.h"
 
 class School : public SchoolObject {
 public:
     string name;
-    vector<Human> students;
-    vector<Human> techers;
+    SchoolObjectList<Student> students;
+    SchoolObjectList<Teacher> teachers;
+    SchoolObjectList<Clazz> classes;
 
     School(string name)  {
         this->name = name;
@@ -19,10 +25,9 @@ public:
 protected:
     string getInfoImpl() {
         string info;
-        for (auto student : students) {
+        for (Student student : students) {
             info += student.getInfo();
         }
-
         return info;
     }
 

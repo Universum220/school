@@ -1,4 +1,5 @@
-#include "schoolObject.h"
+#pragma once
+#include "SchoolObject.h"
 #include <string>
 
 using namespace std;
@@ -13,9 +14,8 @@ public:
         this->secondName = secondName;
     }
 
-    string getName() override {
+    string getName() {
         return firstName + " " + secondName;
     }
 
 };
-

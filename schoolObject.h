@@ -1,13 +1,8 @@
-//
-// Created by dkurlyanov on 11/26/2019.
-//
-
-#ifndef SCHOOL_SchoolObject_H
-#define SCHOOL_SchoolObject_H
-
+#pragma once
 #include <string>
 #include <list>
 #include <typeinfo>
+#include <iostream>
 
 using namespace std;
 
@@ -28,11 +23,13 @@ protected:
         return "";
     };
 
+    virtual void log(const string mess) final {
+        cout << mess << endl;
+    }
+
 private:
     virtual string getClassName() {
         return string(typeid(*this).name());;
     }
 
 };
-
-#endif //SCHOOL_SchoolObject_H
